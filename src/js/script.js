@@ -94,8 +94,8 @@
         let  activeProducts = document.querySelectorAll(select.all.menuProductsActive);
         //console.log(activeProducts);
         /* if there is active product and it's not thisProduct.element, remove class active from it */
-        activeProducts = Array.from(activeProducts).filter(x => x !== thisProduct.element);
-        activeProducts.map(x => x.classList.remove('active'));
+        activeProducts = Array.from(activeProducts).filter(product => product !== thisProduct.element);
+        activeProducts.forEach(product => product.classList.remove('active'));
         /* toggle active class on thisProduct.element */
         thisProduct.element.classList.add('active');
       });
