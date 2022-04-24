@@ -135,13 +135,14 @@
         for (let optionId in param.options) {
           const option = param.options[optionId];
           //console.log(optionId, option);
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
           // reduce price if default paramter is unchecked
-          if (option.default && !formData[paramId].includes(optionId)){
+          if (option.default && !optionSelected){
             price -= option.price;
             console.log('price reduce', option.price);
           }
           // increase price if extra paramter is checked
-          else if (!option.default && formData[paramId].includes(optionId)){
+          else if (!option.default && optionSelected){
             price += option.price;
             console.log('price increase', option.price);
           }
@@ -150,10 +151,10 @@
           // manage product image
           const optionImage = thisProduct.element.querySelector(`.${paramId}-${optionId}`);
           if (optionImage){
-            if (formData[paramId].includes(optionId)){
-              optionImage.classList.add('active');
+            if (optionSelected){
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
             } else {
-              optionImage.classList.remove('active');
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
         }
