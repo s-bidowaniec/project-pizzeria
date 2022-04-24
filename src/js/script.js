@@ -122,30 +122,43 @@
       console.log('process Order');
       // covert form to object structure
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData', formData);
+      //console.log('formData', formData);
       // set price to default
       let price = thisProduct.data.price;
-
+      console.log('product', price);
       // for every category (param)...
       for(let paramId in thisProduct.data.params){
         const param = thisProduct.data.params[paramId];
-        console.log(paramId, param);
+        //console.log(paramId, param);
 
         // for every option in this category
         for (let optionId in param.options) {
           const option = param.options[optionId];
-          console.log(optionId, option);
+          //console.log(optionId, option);
           // reduce price if default paramter is unchecked
           if (option.default && !formData[paramId].includes(optionId)){
             price -= option.price;
+            console.log('price reduce', option.price);
           }
           // increase price if extra paramter is checked
-          else if (formData[paramId].includes(optionId)){
+          else if (!option.default && formData[paramId].includes(optionId)){
             price += option.price;
+            console.log('price increase', option.price);
           }
           // otherwise leave the price unchanged
+
+          // manage product image
+          const optionImage = thisProduct.element.querySelector(`.${paramId}-${optionId}`);
+          if (optionImage){
+            if (formData[paramId].includes(optionId)){
+              optionImage.classList.add('active');
+            } else {
+              optionImage.classList.remove('active');
+            }
+          }
         }
       }
+      console.log('product', price);
       // update price in html
       thisProduct.priceElem.innerHTML = price;
     }
