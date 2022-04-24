@@ -120,6 +120,34 @@
     processOrder(){
       const thisProduct = this;
       console.log('process Order');
+      // covert form to object structure
+      const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log('formData', formData);
+      // set price to default
+      let price = thisProduct.data.price;
+
+      // for every category (param)...
+      for(let paramId in thisProduct.data.params){
+        const param = thisProduct.data.params[paramId];
+        console.log(paramId, param);
+
+        // for every option in this category
+        for (let optionId in param.options) {
+          const option = param.options[optionId];
+          console.log(optionId, option);
+          // reduce price if default paramter is unchecked
+          if (option.default && !formData[paramId].includes(optionId)){
+            price -= option.price;
+          }
+          // increase price if extra paramter is checked
+          else if (formData[paramId].includes(optionId)){
+            price += option.price;
+          }
+          // otherwise leave the price unchanged
+        }
+      }
+      // update price in html
+      thisProduct.priceElem.innerHTML = price;
     }
   }
 
