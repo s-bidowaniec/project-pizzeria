@@ -245,11 +245,19 @@
     constructor(element) {
       const thisCart = this;
       thisCart.getElements(element);
+      thisCart.initActions();
     }
     getElements(element){
       const thisCart = this;
       thisCart.dom = {};
       thisCart.dom.wrapper = element;
+      thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+    }
+    initActions(){
+      const thisCart = this;
+      thisCart.dom.toggleTrigger.addEventListener('click', ()=>{
+        thisCart.dom.wrapper.classList.contains(classNames.cart.wrapperActive) ? thisCart.dom.wrapper.classList.remove(classNames.cart.wrapperActive) : thisCart.dom.wrapper.classList.add(classNames.cart.wrapperActive);
+      });
     }
   }
 
@@ -265,6 +273,10 @@
       const thisApp = this;
       thisApp.data = dataSource;
     },
+    initCart: function(){
+      const thisApp = this;
+      thisApp.cart = new Cart(document.querySelector(select.containerOf.cart));
+    },
     init: function(){
       const thisApp = this;
       //console.log('*** App starting ***');
@@ -274,6 +286,7 @@
       //console.log('templates:', templates);
       thisApp.initData();
       thisApp.initMenu();
+      thisApp.initCart();
     },
   };
 
