@@ -282,6 +282,8 @@
   class Cart{
     constructor(element) {
       const thisCart = this;
+
+      thisCart.products = [];
       thisCart.getElements(element);
       thisCart.initActions();
     }
@@ -300,10 +302,34 @@
     }
     add(menuProduct){
       const thisCart = this;
-      console.log(menuProduct);
+      /* create HTML */
       const generatedHTML = templates.cartProduct(menuProduct);
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
       thisCart.dom.productList.appendChild(generatedDOM);
+      /* save data */
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+      console.log(thisCart.products);
+    }
+  }
+
+  class CartProduct{
+    constructor(menuProduct, element){
+      const thisCartProduct = this;
+
+      for (const paramId in menuProduct){
+        thisCartProduct[paramId] = menuProduct[paramId];
+      }
+      thisCartProduct.getElement(element);
+    }
+    getElement(element){
+      const thisCartProduct = this;
+
+      thisCartProduct.dom = {};
+      thisCartProduct.dom.wrapper = element;
+      thisCartProduct.dom.amountWidget = element.querySelector(select.cartProduct.amountWidget);
+      thisCartProduct.dom.price = element.querySelector(select.cartProduct.price);
+      thisCartProduct.dom.edit = element.querySelector(select.cartProduct.edit);
+      thisCartProduct.dom.remove = element.querySelector(select.cartProduct.remove);
     }
   }
 
