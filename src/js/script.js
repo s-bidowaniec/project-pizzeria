@@ -299,6 +299,7 @@
       thisCart.dom.subtotalPrice = thisCart.dom.wrapper.querySelector(select.cart.subtotalPrice);
       thisCart.dom.totalPrice = thisCart.dom.wrapper.querySelectorAll(select.cart.totalPrice);
       thisCart.dom.totalNumber = thisCart.dom.wrapper.querySelector(select.cart.totalNumber);
+      thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
     }
     initActions(){
       const thisCart = this;
@@ -311,6 +312,10 @@
       });
       thisCart.dom.productList.addEventListener('remove', (event)=>{
         thisCart.remove(event.detail.cartProduct);
+      });
+      thisCart.dom.form.addEventListener('submit', (event)=>{
+        event.preventDefault();
+        thisCart.sendOrder();
       });
     }
     add(menuProduct){
@@ -347,6 +352,31 @@
       thisCart.dom.deliveryFee.innerHTML = deliveryFee;
       thisCart.dom.totalPrice.forEach(x=>x.innerHTML=thisCart.totalPrice);
       thisCart.dom.totalNumber.innerHTML = totalNumber;
+    }
+    sendOrder(){
+      const thisCart = this;
+
+      const url = settings.db.url + '/' + settings.db.orders;
+      const formData = utils.serializeFormToObject(thisCart.dom.form);
+
+      const payload = {
+        'address': formData.address[0],
+        'phone': formData.phone[0],
+        'totalPrice': thisCart.totalPrice,
+        'subtotalPrice': thisCart.totalPrice-settings.cart.defaultDeliveryFee,
+        'totalNumber': thisCart.products.length,
+        'deliveryFee': settings.cart.defaultDeliveryFee,
+        'products': thisCart.products.map(product => product.getData()),
+      };
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      };
+
+      fetch(url, options);
     }
   }
 
@@ -407,6 +437,19 @@
       });
 
       thisCartProduct.dom.wrapper.dispatchEvent(event);
+    }
+    getData(){
+      const thisCartProduct = this;
+
+      const reducedCartProduct = {
+        'id': thisCartProduct.id,
+        'amount': thisCartProduct.amount,
+        'price': thisCartProduct.price,
+        'priceSingle': thisCartProduct.priceSingle,
+        'name': thisCartProduct.name,
+        'params': thisCartProduct.params,
+      };
+      return reducedCartProduct;
     }
   }
 
