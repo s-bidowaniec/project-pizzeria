@@ -1,0 +1,41 @@
+
+.gallery-wrapper {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .image {
+    position: relative;
+    width: 33.333%;
+
+    img {
+      width: 100%;
+      border-radius: $radius;
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      font-size: 25px;
+      transition: opacity 1s ease-out;
+
+      .red {
+        color: red;
+      }
+
+      .white {
+        color: white;
+      }
+    }
+
+    &:hover {
+      .icon {
+        opacity: 1;
+      }
+    }
+  }
+}

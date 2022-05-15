@@ -19,6 +19,12 @@ $transition: all .3s;
 $radius: 4px;
 
 $base-size: 12px;
+
+/* Global */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* Mixins */
 
 @mixin btn($btn-bg, $btn-text, $btn-border) {

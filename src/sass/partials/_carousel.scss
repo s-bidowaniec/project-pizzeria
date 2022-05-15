@@ -1,0 +1,45 @@
+/* external css: flickity.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.carousel {
+  background: #EEE;
+}
+
+.carousel-cell {
+  width: 100%;
+  height: 200px;
+  margin: 3px;
+  background: gray;
+  border-radius: $radius;
+  counter-increment: gallery-cell;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pizza-img {
+  width: 50%;
+
+  img {
+    height: 200px;
+    width: 100%;
+    border-radius: $radius;
+  }
+}
+
+.opinion {
+  padding-left: 6px;
+  width: 50%;
+  text-align: left;
+  color: white;
+
+  .author {
+    font-style: italic;
+  }
+}

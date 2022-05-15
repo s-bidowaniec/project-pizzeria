@@ -3,12 +3,16 @@ export const select = {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product',
     bookingWidget: '#template-booking-widget',
+    homePage: '#template-home',
+    opinion: '#template-opinion',
   },
   containerOf: {
     menu: '#product-list',
     cart: '#cart',
     pages: '#pages',
     booking: '.booking-wrapper',
+    homePage: '#home .home-wrapper',
+    slider: '.main-carousel',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -116,10 +120,17 @@ export const settings = {
     orders: 'orders',
     booking: 'bookings',
     event: 'events',
+    opinions: 'opinions',
+    gallery: 'gallery',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
     repeatParam: 'repeat_ne=false',
+  },
+  carousel: {
+    autoPlay: true,
+    cellAlign: 'left',
+    contain: true
   },
 };
 

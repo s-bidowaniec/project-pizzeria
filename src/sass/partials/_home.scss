@@ -1,0 +1,52 @@
+.home-wrapper {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 1) ($base-size * 4);
+  background: $color-light;
+  border-radius: $radius;
+
+  .links-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+
+    .link {
+      min-width: 48%;
+      height: 120px;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      flex-grow: 1;
+      margin: 3px;
+      border-radius: $radius;
+      line-height: 120px;
+      transition: all 1s;
+
+      &.order {
+        background-image: url('../images/assets/pizza-1.jpg');
+      }
+
+      &.book {
+        background-image: url('../images/assets/pizza-2.jpg');
+      }
+
+      &:hover {
+        line-height: 60px;
+      }
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    .hours {
+      background-color: $color-main;
+      height: 120px;
+      min-width: 98%;
+      flex-grow: 1;
+      color: white;
+      margin: 3px;
+      border-radius: $radius;
+    }
+  }
+}
