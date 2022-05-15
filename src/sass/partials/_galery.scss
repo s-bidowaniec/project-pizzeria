@@ -7,11 +7,13 @@
 
   .image {
     position: relative;
-    width: 33.333%;
+    width: 33%;
 
     img {
       width: 100%;
       border-radius: $radius;
+      height: 160px;
+      object-fit: cover;
     }
 
     .icon {
@@ -23,13 +25,16 @@
       font-size: 25px;
       transition: opacity 1s ease-out;
 
-      .red {
-        color: red;
+      i {
+        color: white;
+        transition: all 1s;
+
+        &:hover {
+          color: red;
+          cursor: pointer;
+        }
       }
 
-      .white {
-        color: white;
-      }
     }
 
     &:hover {

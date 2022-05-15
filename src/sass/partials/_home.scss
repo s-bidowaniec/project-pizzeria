@@ -21,6 +21,7 @@
       border-radius: $radius;
       line-height: 120px;
       transition: all 1s;
+      text-decoration: none;
 
       &.order {
         background-image: url('../images/assets/pizza-1.jpg');

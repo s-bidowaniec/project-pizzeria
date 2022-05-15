@@ -1,5 +1,6 @@
 import {select} from '../settings.js';
 import Carousel from './Carousel.js';
+import Gallery from './Gallery.js';
 
 class HomePage {
   constructor(domWrapper) {
@@ -7,6 +8,7 @@ class HomePage {
 
     thisHomePage.render(domWrapper);
     thisHomePage.slider = new Carousel();
+    thisHomePage.gallery = new Gallery();
   }
 
   render(domWrapper) {

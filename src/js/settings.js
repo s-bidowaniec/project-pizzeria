@@ -5,6 +5,7 @@ export const select = {
     bookingWidget: '#template-booking-widget',
     homePage: '#template-home',
     opinion: '#template-opinion',
+    photo: '#template-photo',
   },
   containerOf: {
     menu: '#product-list',
@@ -13,6 +14,7 @@ export const select = {
     booking: '.booking-wrapper',
     homePage: '#home .home-wrapper',
     slider: '.main-carousel',
+    gallery: '.gallery-wrapper',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -53,6 +55,7 @@ export const select = {
   },
   nav: {
     links: '.main-nav a',
+    homePageLinks: '.links-row a',
   },
   cart: {
     productList: '.cart__order-summary',
@@ -128,9 +131,10 @@ export const settings = {
     repeatParam: 'repeat_ne=false',
   },
   carousel: {
-    autoPlay: true,
+    autoPlay: 3000, //in milliseconds
     cellAlign: 'left',
-    contain: true
+    contain: true,
+    prevNextButtons: false,
   },
 };
 

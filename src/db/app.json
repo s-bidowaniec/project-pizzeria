@@ -279,50 +279,57 @@
   "opinions": [
     {
       "id": 1,
-      "title": "Firtst",
+      "title": "Good Snacks",
       "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum m et dolorum fuga.",
-      "author": "J.K. Rowling",
-      "image_id": "images/assets/pizza-5.jpg"
+      "author": "Harry",
+      "image_id": "images/assets/pizza-3.jpg"
     },
     {
       "id": 2,
-      "title": "Second",
+      "title": "Great Pizza!",
       "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis pui officia dtia animi, id est laborum et dolorum fuga.",
-      "author": "J.R.R. Tolkien",
+      "author": "George",
       "image_id": "images/assets/pizza-3.jpg"
     },
     {
       "id": 3,
-      "title": "Third",
+      "title": "Suprising",
       "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praequi officia i, id est laborum et dolorum fuga.",
-      "author": "G. Lucas",
-      "image_id": "images/assets/pizza-2.jpg"
+      "author": "Annonymus",
+      "image_id": "images/assets/pizza-3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Best ingradients",
+      "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praequi officia i, id est laborum et dolorum fuga.",
+      "author": "Jim",
+      "image_id": "images/assets/pizza-3.jpg"
     }
   ],
   "gallery": [
     {
       "id": 1,
-      "photo_src": "images/assets/pizza-1.jpg"
-    },
-    {
-      "id": 2,
-      "photo_src": "images/assets/pizza-2.jpg"
-    },
-    {
-      "id": 3,
-      "photo_src": "images/assets/pizza-3.jpg"
-    },
-    {
-      "id": 4,
       "photo_src": "images/assets/pizza-4.jpg"
     },
     {
-      "id": 5,
+      "id": 2,
       "photo_src": "images/assets/pizza-5.jpg"
     },
     {
-      "id": 6,
+      "id": 3,
       "photo_src": "images/assets/pizza-6.jpg"
+    },
+    {
+      "id": 4,
+      "photo_src": "images/assets/pizza-7.jpg"
+    },
+    {
+      "id": 5,
+      "photo_src": "images/assets/pizza-8.jpg"
+    },
+    {
+      "id": 6,
+      "photo_src": "images/assets/pizza-9.jpg"
     }
   ]
 }
